@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        'primary-yellow': '#FACC15',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
