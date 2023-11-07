@@ -91,9 +91,9 @@ export default function Register() {
             <div className="text-gray-400">LUB</div>
             <div className="flex-1 border-b"></div>
           </div>
-
-          <Button variant="outline" className="w-full text-black py-2 rounded">Zaloguj się</Button>
-
+          <Link href="/login">
+            <Button variant="outline" className="w-full text-black py-2 rounded">Zaloguj się</Button>
+          </Link>
           <p className="text-center text-gray-500 mt-4 mb-2">
             Kontynuując zgadzasz się na 
             <Link href="https://pl.wikipedia.org/wiki/Regulamin" className="underline"> Regulamin </Link>

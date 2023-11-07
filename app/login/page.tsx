@@ -41,10 +41,11 @@ export default function Login() {
               <div className="text-gray-400">Nie masz jeszcze konta?</div>
               <div className="flex-1 border-b"></div>
           </div>
-
-          <Button variant="outline" className="w-full text-black py-2 rounded">
-            Załóż konto
-          </Button>
+          <Link href="/register">
+            <Button variant="outline" className="w-full text-black py-2 rounded">
+              Załóż konto
+            </Button>
+          </Link>
             </div>
           </form>
 
