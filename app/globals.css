@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-multiple-carousel__arrow {
+    margin-top: -50px
+}
+
+.react-multiple-carousel__arrow--right {
+    margin-right: -10px
+}
+
+.react-multiple-carousel__arrow--left {
+    margin-left: -10px
+}

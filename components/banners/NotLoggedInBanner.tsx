@@ -8,9 +8,10 @@ export default function NotLoggedInBanner() {
       <Image
         src='/not_logged_in_banner.png'
         alt='banner'
-        fill
-        objectFit='cover'
-        className='rounded-lg'
+        width={0}
+        height={350}
+        sizes='100vw'
+        className='rounded-lg object-cover w-full h-[250px] lg:h-[350px]'
       />
       <div className='absolute left-0 top-0 w-full h-full flex items-center p-8 bg-black bg-opacity-30 rounded-lg'>
         <div className='md:w-7/12 lg:w-6/12 xl:w-4/12 max-h-max flex flex-col gap-4'>
@@ -23,9 +24,7 @@ export default function NotLoggedInBanner() {
             swoją kulinarową podróż już dzisiaj. Smacznego!
           </p>
           <Link href='/register' className='h-8 w-64 m-auto'>
-            <Button className='bg-yellow-400 w-full h-full'>
-              Załóż konto
-            </Button>
+            <Button className='bg-yellow-400 w-full h-full'>Załóż konto</Button>
           </Link>
         </div>
       </div>
