@@ -18,14 +18,14 @@ export default function Navbar() {
             width={25}
             height={25}
           />
-          <h1 className='font-medium text-xl'>LunchMate</h1>
+          <h1 className='font-medium text-[22px]'>LunchMate</h1>
         </div>
-        <ul className='hidden sm:flex justify-center items-center gap-8 mt-[2px] font-medium'>
+        <ul className='hidden sm:flex justify-center items-center gap-8 mt-[2px] text-lg font-medium'>
           <li>
             <Link href='/'>Strona główna</Link>
           </li>
           <li>
-            <Link href='/'>Przepisy</Link>
+            <Link href='/recipes'>Przepisy</Link>
           </li>
           <li>
             <Link href='/about'>O nas</Link>
@@ -46,7 +46,7 @@ export default function Navbar() {
             width={25}
             height={25}
           />
-          <h1 className='font-medium text-xl'>LunchMate</h1>
+          <h1 className='font-medium text-[22px]'>LunchMate</h1>
         </div>
         <div className='w-2/12 flex items justify-end relative'>
           <button onClick={() => setShowSearch(!showSearch)}>

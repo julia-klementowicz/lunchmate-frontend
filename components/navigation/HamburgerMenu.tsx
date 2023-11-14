@@ -40,7 +40,7 @@ export default function HamburgerMenu() {
                 width={25}
                 height={25}
               />
-              <h1 className='font-medium text-xl'>LunchMate</h1>
+              <h1 className='font-medium text-2xl'>LunchMate</h1>
             </div>
             <button className='justify-self-end' onClick={toggleDrawer}>
               <Image
@@ -58,7 +58,7 @@ export default function HamburgerMenu() {
               </Link>
             </li>
             <li>
-              <Link href='/' onClick={toggleDrawer}>
+              <Link href='/recipes' onClick={toggleDrawer}>
                 Przepisy
               </Link>
             </li>

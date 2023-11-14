@@ -6,9 +6,9 @@ export default function NotLoggedInBanner() {
   return (
     <div className='w-full h-[250px] lg:h-[350px] relative'>
       <Image
-        src='/not_logged_in_banner.png'
+        src='/homepage_banner.webp'
         alt='banner'
-        width={0}
+        width={1300}
         height={350}
         sizes='100vw'
         className='rounded-lg object-cover w-full h-[250px] lg:h-[350px]'
