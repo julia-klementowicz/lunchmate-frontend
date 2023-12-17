@@ -8,7 +8,7 @@ type CategoryCardProps = {
 
 export default function CategoryCard({ label, imageLink }: CategoryCardProps) {
   return (
-    <Link href='/' className='relative rounded-lg'>
+    <Link href='/recipes/breakfast' className='relative rounded-lg'>
       <Image
         src={imageLink}
         alt='image'

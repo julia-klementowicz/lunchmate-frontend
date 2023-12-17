@@ -19,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={poppins.className + 'min-h-screen'}>{children}</body>
+      <body className={poppins.className + 'min-h-screen vsc-initialized'}>
+        {children}
+      </body>
     </html>
   );
 }

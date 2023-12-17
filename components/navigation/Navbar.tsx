@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <>
       <header className='w-full h-14 px-4 hidden sm:flex justify-between items-center border-b border-neutral-200'>
-        <div className='flex gap-2 w-2/12 lg:w-3/12 max-w-[300px]'>
+        <Link href='/' className='flex gap-2 w-2/12 lg:w-3/12 max-w-[300px]'>
           <Image
             src='/logo_icon.svg'
             alt='LunchMate logo'
@@ -19,7 +19,7 @@ export default function Navbar() {
             height={25}
           />
           <h1 className='font-medium text-[22px]'>LunchMate</h1>
-        </div>
+        </Link>
         <ul className='hidden sm:flex justify-center items-center gap-8 mt-[2px] text-lg font-medium'>
           <li>
             <Link href='/'>Strona główna</Link>

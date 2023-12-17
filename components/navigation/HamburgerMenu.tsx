@@ -27,6 +27,7 @@ export default function HamburgerMenu() {
         direction='left'
         duration={360}
         style={{ width: '100%' }}
+        customIdSuffix='hamburger-menu'
         zIndex={1000}
         lockBackgroundScroll
       >

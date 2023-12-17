@@ -1,12 +1,20 @@
 import CategoryCard from '@/components/cards/CategoryCard';
 import Navbar from '@/components/navigation/Navbar';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Lunch Mate - Przepisy',
+  description: 'Lunch Mate - best social media app with YOUR recipies!',
+};
 
 export default function RecipesPage() {
   return (
     <>
       <Navbar />
       <main className='m-auto mt-1 sm:mt-2 p-4 max-w-[1300px]'>
-        <h2 className='text-xl sm:text-2xl font-semibold'>Wybierz kategorie przepisów</h2>
+        <h2 className='text-xl sm:text-2xl font-semibold'>
+          Wybierz kategorie przepisów
+        </h2>
         <div className='mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4'>
           <CategoryCard
             label='Śniadania'

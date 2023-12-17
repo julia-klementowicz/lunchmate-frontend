@@ -17,6 +17,7 @@ export default function RecipeCard({ type }: RecipeCardProps) {
         width={type === 'large' ? 240 : 190}
         height={type === 'large' ? 300 : 250}
         sizes='100vw'
+        style={{width: 'auto', height: 'auto'}}
         className={`rounded-md object-cover w-full ${
           type === 'small' && 'h-[150px] min-[460px]:h-[200px] sm:h-[250px]'
         } ${

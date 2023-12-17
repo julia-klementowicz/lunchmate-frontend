@@ -1,7 +1,7 @@
 import Navbar from '@/components/navigation/Navbar';
 import NotLoggedInBanner from '@/components/banners/NotLoggedInBanner';
-import MostPopularSection from '@/components/sections/MostPopularSection';
-import LastAddedSection from '@/components/sections/LastAddedSection';
+import MostPopularSection from '@/components/sections/homepage/MostPopularSection';
+import LastAddedSection from '@/components/sections/homepage/LastAddedSection';
 
 export default function Home() {
   return (
