@@ -9,8 +9,8 @@ npm run lint ||
 )
 
 # FORMAT CODE
-npm run format || 
+npm run pcheck || 
 (
-    echo "Formatting failed, commit aborted"
+    echo "Please format your code before committing. Use npm run format."
     exit 1
 )
