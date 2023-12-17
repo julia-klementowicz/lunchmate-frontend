@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function RecipeIngredient({ ingredient }: any) {
   return (
@@ -7,11 +7,7 @@ export default function RecipeIngredient({ ingredient }: any) {
         htmlFor={ingredient.name}
         className='grid grid-cols-6 items-center'
       >
-        <input
-          type='checkbox'
-          id={ingredient.name}
-          name={ingredient.name}
-        />
+        <input type='checkbox' id={ingredient.name} name={ingredient.name} />
         <span className='col-span-2'>{ingredient.name}</span>
         <span className=''>{ingredient.amount}</span>
         <span className='justify-self-end'>{ingredient.amount}</span>

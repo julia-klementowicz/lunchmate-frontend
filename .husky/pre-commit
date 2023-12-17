@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# CHECK IF LINTING PASSES
+npm run lint || 
+(
+    echo "Linting failed, commit aborted"
+    exit 1
+)
+
+# FORMAT CODE
+npm run format || 
+(
+    echo "Formatting failed, commit aborted"
+    exit 1
+)

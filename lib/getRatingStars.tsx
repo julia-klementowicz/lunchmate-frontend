@@ -1,6 +1,10 @@
 import Image from 'next/image';
 
-export default function getRatingStars(rating: number, size: number = 20, yellow: boolean = false) {
+export default function getRatingStars(
+  rating: number,
+  size: number = 20,
+  yellow: boolean = false,
+) {
   const fullStars = Math.floor(rating);
   const halfStars = Math.ceil(rating - fullStars);
   const emptyStars = 5 - fullStars - halfStars;

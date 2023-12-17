@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   -webkit-appearance: none; /*hides the default checkbox*/
   height: 20px;
   width: 20px;
   background-color: white;
-  border: 1px solid #FACC15;
+  border: 1px solid #facc15;
   text-align: center;
   font-weight: 600;
   color: white;
@@ -15,18 +15,18 @@ input[type="checkbox"] {
   outline: none;
 }
 
-input[type="checkbox"]:checked {
-  background-color: #FACC15;
+input[type='checkbox']:checked {
+  background-color: #facc15;
 }
 
-input[type="checkbox"]:before {
-  content: "";
+input[type='checkbox']:before {
+  content: '';
 }
-input[type="checkbox"]:checked:before {
+input[type='checkbox']:checked:before {
   content: url('../public/checkmark.svg');
 }
 
-input[type="checkbox"]:hover {
+input[type='checkbox']:hover {
   cursor: pointer;
 }
 

@@ -10,17 +10,17 @@ export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   return (
     <>
-      <header className='w-full h-14 px-4 hidden sm:flex justify-between items-center border-b border-neutral-200'>
-        <Link href='/' className='flex gap-2 w-2/12 lg:w-3/12 max-w-[300px]'>
+      <header className='hidden h-14 w-full items-center justify-between border-b border-neutral-200 px-4 sm:flex'>
+        <Link href='/' className='flex w-2/12 max-w-[300px] gap-2 lg:w-3/12'>
           <Image
             src='/logo_icon.svg'
             alt='LunchMate logo'
             width={25}
             height={25}
           />
-          <h1 className='font-medium text-[22px]'>LunchMate</h1>
+          <h1 className='text-[22px] font-medium'>LunchMate</h1>
         </Link>
-        <ul className='hidden sm:flex justify-center items-center gap-8 mt-[2px] text-lg font-medium'>
+        <ul className='mt-[2px] hidden items-center justify-center gap-8 text-lg font-medium sm:flex'>
           <li>
             <Link href='/'>Strona główna</Link>
           </li>
@@ -31,33 +31,33 @@ export default function Navbar() {
             <Link href='/about'>O nas</Link>
           </li>
         </ul>
-        <div className='w-2/12 lg:w-3/12 max-w-[300px]'>
+        <div className='w-2/12 max-w-[300px] lg:w-3/12'>
           <Input type='text' placeholder='Szukaj...' className='h-9' />
         </div>
       </header>
-      <header className='w-full h-14 px-4 flex sm:hidden justify-between items-center border-b border-neutral-200'>
-        <div className='w-2/12 flex items-center'>
+      <header className='flex h-14 w-full items-center justify-between border-b border-neutral-200 px-4 sm:hidden'>
+        <div className='flex w-2/12 items-center'>
           <HamburgerMenu />
         </div>
-        <div className='flex items-center justify-center gap-2 w-4/12'>
+        <div className='flex w-4/12 items-center justify-center gap-2'>
           <Image
             src='/logo_icon.svg'
             alt='LunchMate logo'
             width={25}
             height={25}
           />
-          <h1 className='font-medium text-[22px]'>LunchMate</h1>
+          <h1 className='text-[22px] font-medium'>LunchMate</h1>
         </div>
-        <div className='w-2/12 flex items justify-end relative'>
+        <div className='items relative flex w-2/12 justify-end'>
           <button onClick={() => setShowSearch(!showSearch)}>
             <Image src='/search_icon.svg' alt='search' width={30} height={30} />
           </button>
-          <div className='absolute top-[44px] -right-2 z-10'>
+          <div className='absolute -right-2 top-[44px] z-10'>
             <Input
               type='text'
               placeholder='Szukaj...'
               className={`w-[200px] ${
-                showSearch ? '' : 'p-0 border-0 h-0'
+                showSearch ? '' : 'h-0 border-0 p-0'
               } transition-all duration-200`}
             />
           </div>

@@ -29,12 +29,12 @@ const responsive = {
 
 export default function MostPopularSection() {
   return (
-    <section className='w-full mt-10 mb-16 flex flex-col'>
+    <section className='mb-16 mt-10 flex w-full flex-col'>
       <div className='mb-4 flex flex-col gap-4'>
-        <h2 className='text-xl sm:text-2xl font-semibold'>
+        <h2 className='text-xl font-semibold sm:text-2xl'>
           Najpopularniejsze przepisy
         </h2>
-        <p className='text-zinc-500 text-sm sm:text-base font-normal leading-tight'>
+        <p className='text-sm font-normal leading-tight text-zinc-500 sm:text-base'>
           Najwyżej oceniane przepisy
         </p>
         <hr />

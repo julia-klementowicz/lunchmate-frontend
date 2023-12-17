@@ -52,14 +52,14 @@ export default function RecipeView({ params: { recipeId } }: RecipeViewProps) {
   return (
     <>
       <Navbar />
-      <main className='m-auto mt-1 sm:mt-2 p-4 max-w-[1300px] text-sm sm:text-base flex flex-col gap-4'>
+      <main className='m-auto mt-1 flex max-w-[1300px] flex-col gap-4 p-4 text-sm sm:mt-2 sm:text-base'>
         <RecipeTitleDateSection recipe={mockRecipe} />
         <RecipeImageIngredientsSection
           recipe={mockRecipe}
           ingredients={mockIngredients}
         />
         <section>
-          <h3 className='my-4 text-2xl font-semibold text-primary-yellow flex items-center'>
+          <h3 className='my-4 flex items-center text-2xl font-semibold text-primary-yellow'>
             Opis wynonania
           </h3>
           <p>{mockRecipe.description}</p>

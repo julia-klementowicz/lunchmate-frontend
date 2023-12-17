@@ -11,8 +11,8 @@ export default function RecipesPage() {
   return (
     <>
       <Navbar />
-      <main className='m-auto mt-1 sm:mt-2 p-4 max-w-[1300px]'>
-        <h2 className='text-xl sm:text-2xl font-semibold'>
+      <main className='m-auto mt-1 max-w-[1300px] p-4 sm:mt-2'>
+        <h2 className='text-xl font-semibold sm:text-2xl'>
           Wybierz kategorie przepisów
         </h2>
         <div className='mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4'>

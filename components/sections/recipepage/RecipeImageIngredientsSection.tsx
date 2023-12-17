@@ -3,16 +3,16 @@ import RecipeIngredient from '@/components/list_items/RecipeIngredient';
 import getDifficulty from '@/lib/getDifficulty';
 import getRatingStars from '@/lib/getRatingStars';
 
-export default function RecipeImageIngredientsSection({recipe, ingredients}: any) {
+export default function RecipeImageIngredientsSection({
+  recipe,
+  ingredients,
+}: any) {
   return (
-    <section
-      id='recipe_mid_section'
-      className='md:grid md:grid-cols-2 gap-8'
-    >
+    <section id='recipe_mid_section' className='gap-8 md:grid md:grid-cols-2'>
       <div id='recipe_icons_and_photo'>
         <div
           id='recipe_icons'
-          className='flex justify-between items-center p-4'
+          className='flex items-center justify-between p-4'
         >
           <div
             id='recipe_time'
@@ -47,14 +47,14 @@ export default function RecipeImageIngredientsSection({recipe, ingredients}: any
         <Image
           src='https://kuchniavikinga.pl/wp-content/uploads/2023/01/zdrowe-sniadanie.webp'
           alt={`Obraz przedstawiający ${recipe.name}`}
-          className='rounded-md w-full object-cover'
+          className='w-full rounded-md object-cover'
           style={{ aspectRatio: '4/3' }}
           width={600}
           height={450}
         />
       </div>
       <div id='recipe_ingredients' className='flex flex-col'>
-        <h3 className='h-20 text-2xl font-semibold flex items-center'>
+        <h3 className='flex h-20 items-center text-2xl font-semibold'>
           Składniki
         </h3>
         <ul className=''>

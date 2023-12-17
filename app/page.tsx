@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className='m-auto p-4 max-w-[1300px]'>
+      <main className='m-auto max-w-[1300px] p-4'>
         <NotLoggedInBanner />
         <MostPopularSection />
         <LastAddedSection />

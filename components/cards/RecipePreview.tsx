@@ -27,17 +27,17 @@ export default function RecipePreview({
           alt={`Obraz przedstawiający ${name}`}
           width={300}
           height={200}
-          className='rounded-t-lg w-full h-full object-cover'
+          className='h-full w-full rounded-t-lg object-cover'
           style={{ aspectRatio: '16/9' }}
         />
       </div>
-      <div className='p-3 flex flex-col gap-1'>
-        <p className='text-base sm:text-lg font-medium'>{name}</p>
+      <div className='flex flex-col gap-1 p-3'>
+        <p className='text-base font-medium sm:text-lg'>{name}</p>
         <p className='text-sm sm:text-base'>
           {description.substring(0, 80)}
           {description.length > 80 && '...'}
         </p>
-        <div className='mt-2 mb-0.5 grid grid-cols-4 text-sm sm:text-base'>
+        <div className='mb-0.5 mt-2 grid grid-cols-4 text-sm sm:text-base'>
           <div className='flex flex-col items-center'>
             <Image
               src='/timer_icon.svg'
@@ -47,10 +47,10 @@ export default function RecipePreview({
             />
             <p>35 min</p>
           </div>
-          <div className='-mt-1 col-span-2 w-full flex justify-center items-center'>
+          <div className='col-span-2 -mt-1 flex w-full items-center justify-center'>
             {getRatingStars(3.5)}
           </div>
-          <div className='flex flex-col justify-center items-center'>
+          <div className='flex flex-col items-center justify-center'>
             <Image
               src='/difficulty/easy_difficulty.svg'
               alt='trudność'

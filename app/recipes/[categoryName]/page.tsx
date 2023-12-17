@@ -38,8 +38,8 @@ export default function CategoryPage({
   return (
     <>
       <Navbar />
-      <main className='m-auto mt-1 sm:mt-2 p-4 max-w-[1300px]'>
-        <h2 className='text-xl sm:text-2xl font-semibold'>
+      <main className='m-auto mt-1 max-w-[1300px] p-4 sm:mt-2'>
+        <h2 className='text-xl font-semibold sm:text-2xl'>
           {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
         </h2>
         <div className='mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>

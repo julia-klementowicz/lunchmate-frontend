@@ -31,8 +31,8 @@ export default function HamburgerMenu() {
         zIndex={1000}
         lockBackgroundScroll
       >
-        <div className='w-full flex flex-col gap-6'>
-          <div className='w-full h-14 px-4 py-2 grid grid-cols-3 border-b'>
+        <div className='flex w-full flex-col gap-6'>
+          <div className='grid h-14 w-full grid-cols-3 border-b px-4 py-2'>
             <div className=''></div>
             <div className='flex items-center justify-center gap-2'>
               <Image
@@ -41,7 +41,7 @@ export default function HamburgerMenu() {
                 width={25}
                 height={25}
               />
-              <h1 className='font-medium text-2xl'>LunchMate</h1>
+              <h1 className='text-2xl font-medium'>LunchMate</h1>
             </div>
             <button className='justify-self-end' onClick={toggleDrawer}>
               <Image
@@ -52,7 +52,7 @@ export default function HamburgerMenu() {
               />
             </button>
           </div>
-          <ul className='flex flex-col justify-center items-center gap-4 mt-[2px] text-lg font-medium'>
+          <ul className='mt-[2px] flex flex-col items-center justify-center gap-4 text-lg font-medium'>
             <li>
               <Link href='/' onClick={toggleDrawer}>
                 Strona główna
