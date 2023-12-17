@@ -2,6 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 RED='\033[0;31m'
+GREEN='\033[0;32m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
@@ -23,3 +24,5 @@ npm run pcheck ||
     echo -e "${RED}Please commit again!${NC}"
     exit 1
 )
+
+echo -e "${GREEN}All checks passed, successfully commited${NC}"
