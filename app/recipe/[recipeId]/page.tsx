@@ -60,7 +60,7 @@ export default function RecipeView({ params: { recipeId } }: RecipeViewProps) {
         />
         <section>
           <h3 className='my-4 flex items-center text-2xl font-semibold text-primary-yellow'>
-            Opis wynonania
+            Opis wykonania
           </h3>
           <p>{mockRecipe.description}</p>
         </section>

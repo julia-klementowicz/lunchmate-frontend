@@ -15,7 +15,11 @@ npm run lint ||
 # FORMAT CODE
 npm run pcheck || 
 (
-    echo -e "${RED}Formatting check failed. Please format your code before committing.${NC}"
-    echo -e "${CYAN}Use 'npm run format' to fix and then commit again${NC}"
+    echo -e "${RED}Formatting check failed${NC}"
+    echo -e "${CYAN}Running 'npm run format' to fix...${NC}"
+    npm run format
+    git add .
+    echo -e "${CYAN}Your code was formatted and changes were added to staging area!${NC}"
+    echo -e "${RED}Please commit again!${NC}"
     exit 1
 )

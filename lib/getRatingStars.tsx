@@ -1,5 +1,10 @@
 import Image from 'next/image';
 
+export const yellowStyle = {
+  filter:
+    'invert(83%) sepia(48%) saturate(1108%) hue-rotate(346deg) brightness(102%) contrast(96%)',
+};
+
 export default function getRatingStars(
   rating: number,
   size: number = 20,
@@ -8,11 +13,6 @@ export default function getRatingStars(
   const fullStars = Math.floor(rating);
   const halfStars = Math.ceil(rating - fullStars);
   const emptyStars = 5 - fullStars - halfStars;
-
-  const yellowStyle = {
-    filter:
-      'invert(83%) sepia(48%) saturate(1108%) hue-rotate(346deg) brightness(102%) contrast(96%)',
-  };
 
   return (
     <>
