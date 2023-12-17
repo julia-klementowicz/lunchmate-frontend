@@ -1,16 +1,21 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
 # CHECK IF LINTING PASSES
 npm run lint || 
 (
-    echo "Linting failed, commit aborted"
+    echo -e "${RED}Linting failed, please fix your code before committing.${NC}"
     exit 1
 )
 
 # FORMAT CODE
 npm run pcheck || 
 (
-    echo "Please format your code before committing. Use npm run format."
+    echo -e "${RED}Formatting check failed. Please format your code before committing.${NC}"
+    echo -e "${CYAN}Use 'npm run format' to fix and then commit again${NC}"
     exit 1
 )
