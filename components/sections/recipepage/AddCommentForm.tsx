@@ -11,7 +11,7 @@ export default function AddCommentForm() {
       <div className='flex gap-2'>
         <textarea
           className='h-12 grow rounded-xl border border-neutral-200 p-2 sm:h-16'
-          placeholder='Podziel się swoimi kulinarzymi wrażeniami'
+          placeholder='Podziel się swoimi kulinarnymi wrażeniami'
         />
         <button className='flex h-12 w-12 items-center justify-center rounded-xl bg-primary-yellow py-2 text-white opacity-50 sm:h-16 sm:w-16'>
           <Image

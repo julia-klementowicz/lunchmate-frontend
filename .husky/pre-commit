@@ -26,3 +26,4 @@ npm run pcheck ||
 )
 
 echo -e "${GREEN}All checks passed, successfully commited${NC}"
+echo -e "${GREEN}You can now push your changes to GitHub${NC}"
