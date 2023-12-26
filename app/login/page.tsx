@@ -16,11 +16,11 @@ export default function Login() {
           <form>
             <div className="space-y-2">
               <div>
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="login">Login</Label>
                 <Input
-                  type="email"
-                  id="email"
-                  placeholder="name@example.com"
+                  type="text"
+                  id="login"
+                  placeholder="example"
                   className="w-full border p-2"
                 />
               </div>
@@ -33,7 +33,7 @@ export default function Login() {
                   className="w-full border p-2"
                 />
               </div>
-              <Button className="w-full bg-primary-yellow text-black py-2 rounded">
+              <Button className="w-full bg-primary-yellow text-black py-2 rounded mb-2.5">
                 Zaloguj się
               </Button>
               <div className="flex items-center justify-center space-x-4">
@@ -42,7 +42,7 @@ export default function Login() {
               <div className="flex-1 border-b"></div>
           </div>
           <Link href="/register">
-            <Button variant="outline" className="w-full text-black py-2 rounded">
+            <Button variant="outline" className="w-full text-black py-2 rounded mt-2.5">
               Załóż konto
             </Button>
           </Link>
@@ -60,7 +60,7 @@ export default function Login() {
 
       <div className="hidden md:w-1/2 relative md:block">
         <Image
-          src="/login.png"
+          src="/login_image.webp"
           alt="banner"
           layout="fill"
           objectFit="cover"
