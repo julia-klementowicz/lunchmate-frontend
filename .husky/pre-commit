@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+# CHECK IF LINTING PASSES
+npm run lint || 
+(
+    echo -e "${RED}Linting failed, please fix your code before committing.${NC}"
+    exit 1
+)
+
+# FORMAT CODE
+npm run pcheck || 
+(
+    echo -e "${RED}Formatting check failed${NC}"
+    echo -e "${CYAN}Running 'npm run format' to fix...${NC}"
+    npm run format
+    git add .
+    echo -e "${CYAN}Your code was formatted and changes were added to staging area!${NC}"
+    echo -e "${RED}Please commit again!${NC}"
+    exit 1
+)
+
+echo -e "${GREEN}All checks passed, successfully commited${NC}"
+echo -e "${GREEN}You can now push your changes to GitHub${NC}"

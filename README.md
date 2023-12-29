@@ -4,7 +4,7 @@ LunchMate is a social media web application with recipes from users all around t
 
 **Live demo: [lunchmate.vercel.app](https://lunchmate.vercel.app/)**
 
-## Getting started as a developer 
+## Getting started as a developer
 
 First, clone the repository locally on your machine. Run the following command in terminal to copy the project to a desired folder:
 
