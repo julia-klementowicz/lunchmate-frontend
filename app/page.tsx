@@ -1,7 +1,13 @@
+import Navbar from '@/components/navigation/Navbar';
+import NotLoggedInBanner from '@/components/banners/NotLoggedInBanner';
+
 export default function Home() {
   return (
-    <main className='p-4'>
-      <h1 className='text-center text-xl font-semibold'>LunchMate Frontend - test</h1>
-    </main>
+    <>
+      <Navbar />
+      <main className='m-auto p-4 max-w-[1500px]'>
+        <NotLoggedInBanner />
+      </main>
+    </>
   );
 }
