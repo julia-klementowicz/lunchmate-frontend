@@ -1,8 +1,13 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 
 const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+});
+
+const inter = Inter({
   weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
 });
@@ -19,11 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body
-        className={poppins.className + 'min-h-screen bg-[#1A1A1B] text-white'}
-      >
-        {children}
-      </body>
+      <body className={inter.className + ' min-h-screen'}>{children}</body>
     </html>
   );
 }
