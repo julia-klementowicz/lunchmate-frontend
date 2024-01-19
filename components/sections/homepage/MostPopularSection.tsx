@@ -27,7 +27,13 @@ const responsive = {
   },
 };
 
-export default function MostPopularSection() {
+type MostPopularSectionProps = {
+  recipes: Recipe[];
+};
+
+export default function MostPopularSection({
+  recipes,
+}: MostPopularSectionProps) {
   return (
     <section className='mb-16 mt-10 flex w-full flex-col'>
       <div className='mb-4 flex flex-col gap-4'>
@@ -40,16 +46,9 @@ export default function MostPopularSection() {
         <hr />
       </div>
       <Carousel responsive={responsive}>
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
-        <RecipeCard type='large' />
+        {recipes.slice(0, 10).map((recipe: Recipe) => (
+          <RecipeCard key={recipe.id} type='large' recipe={recipe} />
+        ))}
       </Carousel>
     </section>
   );

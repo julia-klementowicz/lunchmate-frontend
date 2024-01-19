@@ -1,20 +1,26 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import getRatingStars from '@/lib/getRatingStars';
+import getDifficulty from '@/lib/getDifficulty';
 
 type RecipePreviewProps = {
-  recipe: {
-    id: number;
-    name: string;
-    description: string;
-    created_at: any;
-    category_id: number;
-    user_id: number;
-  };
+  recipe: Recipe;
 };
 
 export default function RecipePreview({
-  recipe: { id, name, description },
+  recipe: {
+    id,
+    name,
+    description,
+    categoryId,
+    userId,
+    comments,
+    ingridients,
+    likesCount,
+    image,
+    time,
+    difficulty,
+  },
 }: RecipePreviewProps) {
   return (
     <Link
@@ -23,7 +29,7 @@ export default function RecipePreview({
     >
       <div className='w-full'>
         <Image
-          src='https://kuchniavikinga.pl/wp-content/uploads/2023/01/zdrowe-sniadanie.webp'
+          src={image}
           alt={`Obraz przedstawiający ${name}`}
           width={300}
           height={200}
@@ -45,19 +51,13 @@ export default function RecipePreview({
               width={24}
               height={24}
             />
-            <p>35 min</p>
+            <p>{time} min</p>
           </div>
           <div className='col-span-2 -mt-1 flex w-full items-center justify-center'>
-            {getRatingStars(3.5)}
+            {/* {getRatingStars(rating)} */}
           </div>
           <div className='flex flex-col items-center justify-center'>
-            <Image
-              src='/difficulty/easy_difficulty.svg'
-              alt='trudność'
-              width={29}
-              height={24}
-            />
-            <p>Łatwy</p>
+            {getDifficulty(difficulty)}
           </div>
         </div>
       </div>

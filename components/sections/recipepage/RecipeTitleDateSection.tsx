@@ -1,4 +1,14 @@
-export default function RecipeTitleDateSection({ recipe }: any) {
+export default async function RecipeTitleDateSection({ recipe }: any) {
+  const author = await fetch(
+    `https://lunchmate-backend-production.up.railway.app/api/user/getUserById?id=${recipe.userId}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  ).then((res) => res.json());
+
   return (
     <section
       id='recipe_title_date_bar'
@@ -11,10 +21,10 @@ export default function RecipeTitleDateSection({ recipe }: any) {
         <h2 id='recipe_title' className='text-xl font-semibold sm:text-2xl'>
           {recipe.name}
         </h2>
-        <p className=''>autor: John Doe</p>
+        <p className='mb-[2px]'>autor: {author.name}</p>
       </div>
       <p id='recipe_date' className=''>
-        dodano: 23.10.2023
+        {/* dodano: 23.10.2023 */}
       </p>
     </section>
   );

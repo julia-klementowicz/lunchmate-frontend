@@ -2,13 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 type CategoryCardProps = {
+  id: number;
   label: string;
   imageLink: string;
 };
 
-export default function CategoryCard({ label, imageLink }: CategoryCardProps) {
+export default function CategoryCard({
+  id,
+  label,
+  imageLink,
+}: CategoryCardProps) {
   return (
-    <Link href='/recipes/breakfast' className='relative rounded-lg'>
+    <Link href={`/recipes/${id}`} className='relative rounded-lg'>
       <Image
         src={imageLink}
         alt='image'

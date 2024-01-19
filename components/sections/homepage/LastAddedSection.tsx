@@ -27,7 +27,11 @@ const responsive = {
   },
 };
 
-export default function LastAddedSection() {
+type LastAddedSectionProps = {
+  recipes: Recipe[];
+};
+
+export default function LastAddedSection({ recipes }: LastAddedSectionProps) {
   return (
     <section className='mb-16 mt-10 flex w-full flex-col'>
       <div className='mb-4 flex flex-col gap-4'>
@@ -40,16 +44,12 @@ export default function LastAddedSection() {
         <hr />
       </div>
       <Carousel responsive={responsive}>
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
-        <RecipeCard type='small' />
+        {recipes
+          .slice(0)
+          .reverse()
+          .map((recipe: Recipe) => (
+            <RecipeCard key={recipe.id} type='small' recipe={recipe} />
+          ))}
       </Carousel>
     </section>
   );

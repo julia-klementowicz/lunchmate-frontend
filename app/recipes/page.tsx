@@ -7,7 +7,18 @@ export const metadata: Metadata = {
   description: 'Lunch Mate - best social media app with YOUR recipies!',
 };
 
-export default function RecipesPage() {
+export default async function RecipesPage() {
+  const categories = await fetch(
+    `https://lunchmate-backend-production.up.railway.app/api/categories`,
+    {
+      cache: 'no-store',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  ).then((res) => res.json());
+
   return (
     <>
       <Navbar />
@@ -16,30 +27,14 @@ export default function RecipesPage() {
           Wybierz kategorie przepisów
         </h2>
         <div className='mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4'>
-          <CategoryCard
-            label='Śniadania'
-            imageLink='https://static.chloeting.com/recipes/61ffa47c2a18c23f7d7f985a/images/vegan-breakfast-plate-1.webp'
-          />
-          <CategoryCard
-            label='Dania główne'
-            imageLink='https://static01.nyt.com/images/2023/09/13/multimedia/11WEEKNIGHT-still-zwhl/11WEEKNIGHT-still-zwhl-master675.jpg'
-          />
-          <CategoryCard
-            label='Desery'
-            imageLink='https://cookiesandcups.com/wp-content/uploads/2015/05/ChocolateMarshmallowPie-19-350x500.jpg'
-          />
-          <CategoryCard
-            label='Śniadania'
-            imageLink='https://static.chloeting.com/recipes/61ffa47c2a18c23f7d7f985a/images/vegan-breakfast-plate-1.webp'
-          />
-          <CategoryCard
-            label='Dania główne'
-            imageLink='https://static01.nyt.com/images/2023/09/13/multimedia/11WEEKNIGHT-still-zwhl/11WEEKNIGHT-still-zwhl-master675.jpg'
-          />
-          <CategoryCard
-            label='Desery'
-            imageLink='https://cookiesandcups.com/wp-content/uploads/2015/05/ChocolateMarshmallowPie-19-350x500.jpg'
-          />
+          {categories.map((category: Category) => (
+            <CategoryCard
+              key={category.id}
+              id={category.id}
+              label={category.name}
+              imageLink={category.image}
+            />
+          ))}
         </div>
       </main>
     </>
