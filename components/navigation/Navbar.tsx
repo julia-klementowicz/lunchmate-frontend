@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from '../ui/input';
@@ -8,6 +8,15 @@ import HamburgerMenu from './HamburgerMenu';
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
+  const [user, setUser] = useState<string | null>(null);
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      setUser(user);
+    }
+  }, [user]);
   return (
     <>
       <header className='hidden h-14 w-full items-center justify-between border-b border-neutral-200 px-4 sm:flex'>
@@ -31,8 +40,55 @@ export default function Navbar() {
             <Link href='/about'>O nas</Link>
           </li>
         </ul>
-        <div className='w-2/12 max-w-[300px] lg:w-3/12'>
+        <div className='flex max-w-[300px] shrink items-center justify-center gap-2'>
           <Input type='text' placeholder='Szukaj...' className='h-9' />
+          {user && (
+            <>
+              <button
+                onClick={() => setShowMenu((prev) => !prev)}
+                className='flex min-h-[32px] min-w-[32px] grow items-center justify-center rounded-full border-2 border-neutral-700 text-xl font-semibold text-neutral-700'
+              >
+                {JSON.parse(user).username[0].toUpperCase()}
+              </button>
+              {showMenu && (
+                <div className='absolute right-1 top-[52px] inline-flex w-40 flex-col items-start justify-start gap-2.5 rounded bg-white py-6 shadow'>
+                  <Link
+                    href='/'
+                    className='inline-flex h-5 items-center justify-start gap-2.5 self-stretch px-5 text-sm font-medium leading-none text-zinc-500'
+                  >
+                    Mój profil
+                  </Link>
+                  <Link
+                    href='/'
+                    className='inline-flex h-5 items-center justify-start gap-2.5 self-stretch px-5 text-sm font-medium leading-none text-zinc-500'
+                  >
+                    Zmień hasło
+                  </Link>
+                  <Link
+                    href='/'
+                    className='inline-flex h-5 items-center justify-start gap-2.5 self-stretch px-5 text-sm font-medium leading-none text-zinc-500'
+                  >
+                    Zmień nazwę
+                  </Link>
+                  <Link
+                    href='/'
+                    className='inline-flex h-5 items-center justify-start gap-2.5 self-stretch px-5 text-sm font-medium leading-none text-zinc-500'
+                  >
+                    Usuń konto
+                  </Link>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem('user');
+                      window.location.href = '/';
+                    }}
+                    className='inline-flex h-5 items-center justify-start gap-2.5 self-stretch px-5 text-sm font-medium leading-none text-zinc-500'
+                  >
+                    Wyloguj się
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </header>
       <header className='flex h-14 w-full items-center justify-between border-b border-neutral-200 px-4 sm:hidden'>
@@ -52,6 +108,11 @@ export default function Navbar() {
           <button onClick={() => setShowSearch(!showSearch)}>
             <Image src='/search_icon.svg' alt='search' width={30} height={30} />
           </button>
+          {user && (
+            <button className='ml-2 flex min-h-[32px] min-w-[32px] max-w-[32px] grow items-center justify-center rounded-full border-2 border-neutral-700 text-xl font-semibold text-neutral-700'>
+              {JSON.parse(user).username[0].toUpperCase()}
+            </button>
+          )}
           <div className='absolute -right-2 top-[44px] z-10'>
             <Input
               type='text'

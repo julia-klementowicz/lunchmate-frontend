@@ -1,21 +1,22 @@
-import getRatingStars from '@/lib/getRatingStars';
+import { useState, useEffect } from 'react';
+import fetchUser from '@/lib/fetchUser';
 
-export default function Comment() {
+export default function Comment({ comment }: any) {
+  const [authorName, setAuthorName] = useState<string>('');
+
+  useEffect(() => {
+    async function getUserName() {
+      const user = await fetchUser(comment.author.toString());
+      setAuthorName(user.name);
+    }
+    getUserName();
+  }, [comment.author]);
+
   return (
     <article className='flex flex-col gap-2 rounded-xl border border-neutral-200 p-4'>
-      <div className='grid grid-cols-3 items-center'>
-        <h4 className='text-lg font-semibold'>John Doe</h4>
-        <p className='flex justify-self-center'>
-          {getRatingStars(3.5, 16, true)}
-        </p>
-      </div>
-      <p className='text-justify text-sm'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        voluptas, voluptatum, quae, voluptates voluptatem quia quos
-        exercitationem quibusdam quidem fugit officiis. Quisquam voluptas,
-        voluptatum, quae, voluptates voluptatem quia quos exercitationem
-        quibusdam quidem fugit officiis.
-      </p>
+      <h4 className='text-lg font-bold'>{authorName}</h4>
+      <h5 className='font-medium'>{comment.title}</h5>
+      <p className='text-justify text-sm'>{comment.description}</p>
     </article>
   );
 }

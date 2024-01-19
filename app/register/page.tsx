@@ -1,27 +1,29 @@
 'use client';
 
-import React from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import Loading from '@/components/Loading';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import Link from 'next/link';
 import { useForm, FieldValues, SubmitHandler } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 const registerSchema = z.object({
-  firstName: z
+  name: z
     .string()
     .refine((data) => data.trim() !== '', { message: 'To pole jest wymagane' }),
-  lastName: z
+  surname: z
     .string()
     .refine((data) => data.trim() !== '', { message: 'To pole jest wymagane' }),
-  birthdate: z
+  birthDate: z
     .string()
     .refine((data) => data.trim() !== '', { message: 'To pole jest wymagane' }),
   email: z.string().email({ message: 'To pole jest wymagane' }),
-  login: z
+  username: z
     .string()
     .refine((data) => data.trim() !== '', { message: 'To pole jest wymagane' }),
   password: z
@@ -44,17 +46,40 @@ export default function Register() {
   } = useForm<FormData>({
     resolver: zodResolver(registerSchema),
   });
+  const [serverError, setServerError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    // TODO: submit to server
-    // ...
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setIsLoading(true);
+    const response = await fetch(
+      'https://lunchmate-backend-production.up.railway.app/api/auth/signup',
+      {
+        method: 'POST',
+        body: JSON.stringify({ ...data, role: ['ROLE_USER'] }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
 
-    reset();
+    if (response.ok) {
+      const data = await response.json();
+      router.push('/verify_email');
+    } else {
+      const data = await response.json();
+      console.error(data);
+      setServerError(data?.message);
+      // setServerError(data.message || 'Niepoprawne dane');
+    }
+
+    setIsLoading(false);
+    // reset();
   };
 
   return (
     <div className='flex h-screen flex-col md:flex-row'>
+      {isLoading && <Loading />}
       <div className='relative hidden md:block md:w-1/2'>
         <Image
           src='/register_image.webp'
@@ -76,42 +101,42 @@ export default function Register() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='space-y-2'>
               <div>
-                <Label htmlFor='firstName'>Imię</Label>
+                <Label htmlFor='name'>Imię</Label>
                 <Input
-                  {...register('firstName')}
+                  {...register('name')}
                   type='text'
-                  id='firstName'
+                  id='name'
                   placeholder='Anna'
                   className='w-full border p-2'
                 />
-                {errors.firstName && (
-                  <p className='text-right text-xs text-red-500'>{`${errors.firstName.message}`}</p>
+                {errors.name && (
+                  <p className='text-right text-xs text-red-500'>{`${errors.name.message}`}</p>
                 )}
               </div>
               <div>
-                <Label htmlFor='lastName'>Nazwisko</Label>
+                <Label htmlFor='surname'>Nazwisko</Label>
                 <Input
-                  {...register('lastName')}
+                  {...register('surname')}
                   type='text'
-                  id='lastName'
+                  id='surname'
                   placeholder='Kowalska'
                   className='w-full border p-2'
                 />
-                {errors.lastName && (
-                  <p className='text-right text-xs text-red-500'>{`${errors.lastName.message}`}</p>
+                {errors.surname && (
+                  <p className='text-right text-xs text-red-500'>{`${errors.surname.message}`}</p>
                 )}
               </div>
               <div>
-                <Label htmlFor='birthdate'>Data urodzenia</Label>
+                <Label htmlFor='birthDate'>Data urodzenia</Label>
                 <Input
-                  {...register('birthdate')}
+                  {...register('birthDate')}
                   type='date'
-                  id='birthdate'
+                  id='birthDate'
                   placeholder='12/04/1998'
                   className='w-full border p-2'
                 />
-                {errors.birthdate && (
-                  <p className='text-right text-xs text-red-500'>{`${errors.birthdate.message}`}</p>
+                {errors.birthDate && (
+                  <p className='text-right text-xs text-red-500'>{`${errors.birthDate.message}`}</p>
                 )}
               </div>
               <div>
@@ -128,16 +153,16 @@ export default function Register() {
                 )}
               </div>
               <div>
-                <Label htmlFor='login'>Login</Label>
+                <Label htmlFor='username'>Login</Label>
                 <Input
-                  {...register('login')}
+                  {...register('username')}
                   type='text'
-                  id='login'
+                  id='username'
                   placeholder='example'
                   className='w-full border p-2'
                 />
-                {errors.login && (
-                  <p className='text-right text-xs text-red-500'>{`${errors.login.message}`}</p>
+                {errors.username && (
+                  <p className='text-right text-xs text-red-500'>{`${errors.username.message}`}</p>
                 )}
               </div>
               <div>
@@ -153,6 +178,9 @@ export default function Register() {
                   <p className='text-right text-xs text-red-500'>{`${errors.password.message}`}</p>
                 )}
               </div>
+              {serverError && (
+                <p className='text-right text-xs text-red-500'>{serverError}</p>
+              )}
               <Button className='w-full rounded bg-primary-yellow py-2 text-black'>
                 Załóż konto
               </Button>
