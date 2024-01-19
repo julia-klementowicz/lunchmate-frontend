@@ -16,7 +16,7 @@ export default function CommentSection({ comments, recipeId }: any) {
       <h3 className='flex items-center text-2xl font-semibold text-primary-yellow'>
         Komentarze
       </h3>
-      {comments.length === 0 && (
+      {viewableComments.length === 0 && (
         <p className='text-sm font-normal leading-tight text-zinc-500 sm:text-base'>
           Brak komentarzy
         </p>
