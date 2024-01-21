@@ -44,12 +44,9 @@ export default function LastAddedSection({ recipes }: LastAddedSectionProps) {
         <hr />
       </div>
       <Carousel responsive={responsive}>
-        {recipes
-          .slice(0)
-          .reverse()
-          .map((recipe: Recipe) => (
-            <RecipeCard key={recipe.id} type='small' recipe={recipe} />
-          ))}
+        {recipes.map((recipe: Recipe) => (
+          <RecipeCard key={recipe.id} type='small' recipe={recipe} />
+        ))}
       </Carousel>
     </section>
   );
