@@ -51,8 +51,8 @@ export default function NotLoggedInBanner() {
             się na <span className='font-bold'>LunchMate</span> i rozpocznij
             swoją kulinarową podróż już dzisiaj. Smacznego!
           </p>
-          <Link href='/register' className='m-auto h-8 w-64'>
-            <Button className='h-full w-full bg-yellow-400'>Załóż konto</Button>
+          <Link href='/login' className='m-auto h-8 w-64'>
+            <Button className='h-full w-full bg-yellow-400'>Zaloguj się</Button>
           </Link>
         </div>
       </div>

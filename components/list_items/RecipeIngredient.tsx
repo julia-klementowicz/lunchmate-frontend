@@ -23,7 +23,7 @@ export default function RecipeIngredient({
         className='grid grid-cols-6 items-center gap-2'
       >
         <input type='checkbox' id={ingredient.name} name={ingredient.name} />
-        <span className='col-span-2 capitalize'>{ingredient.name}</span>
+        <span className='col-span-2'>{ingredient.name}</span>
         <span className='justify-self-center'>{ingredient.amount}</span>
         <span className='justify-self-center'>{ingredient.unit}</span>
 
